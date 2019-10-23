@@ -1,0 +1,15 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+buf	note/fork.c	/^char buf[]={"Write to student\\n"};$/;"	v	language:C
+buf	note/text_buffer/text_buffer.c	/^char buf[] = {"1234 stdout\\n"};$/;"	v	language:C
+buf	note/text_buffer/text_buffer2.c	/^char buf[] = {"1234 stdout\\n"};$/;"	v	language:C
+globa	note/simplefork/simplefork.c	/^int globa = 4;$/;"	v	language:C
+main	note/fork.c	/^int main()$/;"	f	language:C
+main	note/hello.c	/^int main()$/;"	f	language:C
+main	note/simplefork/simplefork.c	/^int main (void )$/;"	f	language:C	signature:(void )
+main	note/text_buffer/text_buffer.c	/^int main(){$/;"	f	language:C
+main	note/text_buffer/text_buffer2.c	/^int main(){$/;"	f	language:C
