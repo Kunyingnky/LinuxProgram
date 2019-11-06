@@ -4,3 +4,4 @@
 #include <sys/types.h>
 #include <wait.h>
 #include <fcntl.h>
+#include <string.h>
