@@ -1,0 +1,39 @@
+动态库笔记
+Linux 下动态链接库（shared object file，共享对象文件）的文件后缀为.so，它是一种特殊的目标文件（object file），
+可以在程序运行时被加载（链接）进来。
+使用动态链接库的优点是：程序的可执行文件更小，便于程序的模块化以及更新，同时，有效内存的使用效率更高。
+
+相关指令
+1.gcc -shared -fPIC -o libdylib.so aoprand.c base.c
+
+-shared:
+想创建一个动态链接库，可以使用 GCC 的-shared选项。输入文件可以是源文件、汇编文件或者目标文件
+-fPIC:
+-fPIC 选项作用于编译阶段，告诉编译器产生与位置无关代码（Position-Independent Code）；
+这样一来，产生的代码中就没有绝对地址了，全部使用相对地址，所以代码可以被加载器加载到内存的任意位置，都可以正确的执行。
+这正是共享库所要求的，共享库被加载时，在内存的位置不是固定的。
+
+总结：gcc生成动态链接库（.so文件）：-shared和-fPIC选项
+
+2.
+动态库在当前文件夹下
+gcc -o ldtextlocal ldtextlocal.c ./libdylib.so
+
+动态库在其他文件夹下
+gcc -o ldtextremote dytestremote.c ../dynamiclib/libdylib.so -I../dynamiclib
+
+3.
+gcc -rdynamic -o rttest dytestrt.c -ldl -I../dynamiclib
+
+如果程序中使用dlopen、dlsym、dlclose、dlerror 显示加载动态库，需要设置链接选项 -ldl
+
+4.
+(1)打开动态链接库：dlopen，函数原型void *dlopen (const char *filename, int flag); dlopen用于打开指定名字(filename)的动态链接库，并返回操作句柄。
+
+(2)取函数执行地址：dlsym，函数原型为: void *dlsym(void *handle, char *symbol); dlsym根据动态链接库操作句柄(handle)与符号(symbol)，返回符号对应的函数的执行代码地址。
+
+(3)关闭动态链接库：dlclose，函数原型为: int dlclose (void *handle); dlclose用于关闭指定句柄的动态链接库，只有当此动态链接库的使用计数为0时,才会真正被系统卸载。
+
+(4)动态库错误函数：dlerror，函数原型为: const char *dlerror(void); 当动态链接库操作函数执行失败时，dlerror可以返回出错信息，返回值为NULL时表示操作函数执行成功。
+
+ 

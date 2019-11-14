@@ -1,0 +1,27 @@
+week6上课笔记：
+
+1.库一般命名为 libxxxxxx.a
+libstatic.a 静态库文件，static库名
+
+2.ar -rc libstatic.a base.o aoprand.o 
+通过ar命令将两个.o文件打包创建libstatic.a静态库
+
+
+3.示例创建并使用静态库
+　　第一步：编辑源文件，test.h test.c main.c。其中main.c文件中包含main函数，作为程序入口；test.c中包含main函数中需要用到的函数。
+　　pluma test.h test.c main.c
+　　第二步：将test.c编译成目标文件。
+　　gcc -c test.c
+　　如果test.c无误，就会得到test.o这个目标文件。
+　　第三步：由.o文件创建静态库。
+　　ar rcs libtest.a test.o
+　　第四步：在程序中使用静态库。
+　　gcc -o main main.c -L. -ltest
+　　因为是静态编译，生成的执行文件可以独立于。a文件运行。
+　　第五步：执行。
+　　./main
+
+4.gcc localstatictest.c -c localstatictest -L. -lstatic
+
+-L参数跟着的是库文件所在的目录名
+-l参数就是用来指定程序要链接的库，-l参数紧接着就是库名
