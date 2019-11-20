@@ -3,3 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <wait.h>
+#include <time.h>
+#include <sys/stat.h>
+#include <signal.h>
+#include <sys/param.h>
+void init_daemon(void);
