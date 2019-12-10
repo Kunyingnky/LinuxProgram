@@ -1,0 +1,8 @@
+在Linux中只要存在资源共享的进程-》线程
+ELF结构
+每个线程私有栈，PC，寄存的映像
+线程在相同资源环境中的不同执行轨迹
+Windows-》进程派生慢
+Linux-》进程派生快
+内核线程-》kthread_create后台内核函数
+用户线程-》pthread_create
