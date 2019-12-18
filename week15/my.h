@@ -6,6 +6,7 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <pthread.h>
+#include <semaphore.h>
 #define LOOP 10000000
 #define NUM 4
 #define TN 100
