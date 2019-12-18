@@ -61,10 +61,11 @@ int main()
 		}
 	}
 	pthread_rwlock_unlock(&rwlock);
-	while(i-->0)
+	while(i-->0)//表示当i大于0时循环，然后i进行自减
 	{
 		pthread_join(tid[i],NULL);
 	}
+	
 	pthread_rwlockattr_destroy(&rwlock_attr);
 	pthread_rwlock_destroy(&rwlock);
 	return 0;
